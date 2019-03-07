@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "91b2ab3d450c1045ada04c044f6c007c",
-    "content-hash": "581e6dac62919bed4dffd93a9fae2879",
-    "packages": [],
+    "hash": "8b160ed158bc9317292ef41f624dc135",
+    "content-hash": "807be3d4f706dbd55d53b25fb1bf1137",
+    "packages": [
+        {
+            "name": "cherry-project/request",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ABGEO07/cherry-request.git",
+                "reference": "96df4a237b895d11866233c68fe53f1d64a68183"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ABGEO07/cherry-request/zipball/96df4a237b895d11866233c68fe53f1d64a68183",
+                "reference": "96df4a237b895d11866233c68fe53f1d64a68183",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cherry\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ABGEO",
+                    "email": "takalandzet@gmail.com",
+                    "homepage": "http://www.abgeo.ga",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Cherry-project Request class",
+            "homepage": "https://github.com/ABGEO07/cherry-request",
+            "keywords": [
+                "cherry",
+                "request"
+            ],
+            "time": "2019-03-05 21:14:32"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
@@ -14,7 +58,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
