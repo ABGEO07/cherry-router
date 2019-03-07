@@ -47,14 +47,11 @@ class Router
 
     /**
      * Router constructor.
-     *
-     * @param string $routesFile      Path to routes file
-     * @param string $controllersPath Path to controllers folder
      */
-    public function __construct($routesFile, $controllersPath)
+    public function __construct()
     {
-        $this->_routesFile = $routesFile;
-        $this->_controllersPath = $controllersPath;
+        $this->_routesFile = ROUTES_FILE;
+        $this->_controllersPath = CONTROLLERS_PATH;
         $this->_routes = $this->_getRoutes();
 
         $this->_checkRoute();
@@ -67,8 +64,26 @@ class Router
      */
     private function _getRoutes()
     {
-        $routes = @file_get_contents($this->_routesFile)
+        $originalRoutes = file_get_contents($this->_routesFile)
             or die("Unable to open routes file!");
+
+        $originalRoutes = json_decode($originalRoutes, 1);
+
+        $routesCacheFile = __ROOT__ . '/var/cache/router.json';
+
+        if (file_exists($routesCacheFile)) {
+            $routesCache =  json_decode(@file_get_contents($routesCacheFile), 1);
+            $routesHash = md5(json_encode($originalRoutes));
+            $cacheHash = $routesCache['hash'];
+
+            if ($cacheHash !== $routesHash) {
+                $this->_cacheRoutes($routesCacheFile, $originalRoutes);
+            }
+        } else {
+            $this->_cacheRoutes($routesCacheFile, $originalRoutes);
+        }
+
+        $routes = file_get_contents($routesCacheFile);
 
         return json_decode($routes, 1);
     }
@@ -89,8 +104,12 @@ class Router
         $controllersPath = $this->_controllersPath;
         $routeFound = false;
 
-        foreach ($routes as $route) {
-            $path = $this->_convertToRE($route['path']);
+        foreach ($routes as $k => $route) {
+            if ($k == 'hash') {
+                continue;
+            }
+
+            $path = $route['path'];
             $method = strtoupper($route['method']);
 
             $match = array();
@@ -134,6 +153,28 @@ class Router
         if (!$routeFound) {
             die("Route {$requestUrl} Not Found!");
         }
+    }
+
+    /**
+     * Cache the routes
+     *
+     * @param string $routesCacheFile Cache file location.
+     * @param array  $routes          Application routes
+     *
+     * @return void
+     */
+    private function _cacheRoutes($routesCacheFile, $routes)
+    {
+        $hash = md5(json_encode($routes));
+
+        foreach ($routes as $k => $v) {
+            $routes[$k]['path'] = $this->_convertToRE($v['path']);
+        }
+
+        $routes['hash'] = $hash;
+
+        @mkdir(dirname($routesCacheFile), 0755, true);
+        @file_put_contents($routesCacheFile, json_encode($routes));
     }
 
     /**

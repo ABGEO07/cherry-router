@@ -3,9 +3,17 @@
 //Include autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 
+define('__ROOT__', __DIR__);
+define('CONFIG_FILE', __DIR__ . '/config/config.json');
+
+$config = file_get_contents(CONFIG_FILE)
+    or die("Unable to open routes file!");
+
+$config = json_decode($config, 1);
+
+foreach ($config as $k => $v)
+    define($k, __DIR__ . '/' . $v);
+
 use Cherry\Router;
 
-define('ROUTES_FILE', __DIR__ . '/src/config/routes.json');
-define('CONTROLLERS_PATH', __DIR__ . '/src/controllers');
-
-$router = new Router(ROUTES_FILE, CONTROLLERS_PATH);
+$router = new Router();

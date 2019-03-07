@@ -1,0 +1,4 @@
+{
+  "ROUTES_FILE": "config/routes.json",
+  "CONTROLLERS_PATH": "controllers"
+}
