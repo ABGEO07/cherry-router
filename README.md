@@ -100,9 +100,9 @@ Route example with placeholder:
 
 There we have placeholder called **{name}** and we can get this value in controller:
 ```php
-public function sayHello($args)
+public function sayHello($name)
 {
-    echo "Hello, {$args['name']}";
+    echo "Hello, {$name}";
 }
 ```
 
