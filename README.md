@@ -60,7 +60,7 @@ Each route must have **path**, **method** and **action** keys. Homepage route ex
   "homepage": {
       "path": "/",
       "method": "GET",
-      "action": "web2hw\\DefaultController::index"
+      "action": "Cherry\\Controller\\DefaultController::index"
   }
 }
 ```
@@ -93,16 +93,16 @@ Route example with placeholder:
     "homepage": {
         "path": "/hello/{name}",
         "method": "GET",
-        "action": "Cherry\\DefaultController::sayHello"
+        "action": "Cherry\\Controller\\DefaultController::sayHello"
     }
 }
 ```
 
 There we have placeholder called **{name}** and we can get this value in controller:
 ```php
-public function sayHello($args)
+public function sayHello($name)
 {
-    echo "Hello, {$args['name']}";
+    echo "Hello, {$name}";
 }
 ```
 

@@ -11,7 +11,9 @@
  * @link     https://github.com/ABGEO07/cherry-router
  */
 
-namespace Cherry;
+namespace Cherry\Routing;
+
+use Cherry\HttpUtils\Request;
 
 /**
  * Cherry project router class
@@ -122,7 +124,8 @@ class Router
 
                 $action = explode('::', $route['action']);
                 $controller = explode('\\', $action[0]);
-                $controllerFile = $controllersPath . '/' . $controller[1] . '.php';
+                $controllerFile = $controllersPath . '/' .
+                    $controller[count($controller) - 1] . '.php';
 
                 //Include controller file
                 if (file_exists($controllerFile)) {
@@ -145,7 +148,8 @@ class Router
                 if (empty($match)) {
                     $object->$objMethod();
                 } else {
-                    $object->$objMethod($match);
+                    $match = array_unique($match, SORT_STRING);
+                    call_user_func_array(array($object, $objMethod), $match);
                 }
             }
         }
