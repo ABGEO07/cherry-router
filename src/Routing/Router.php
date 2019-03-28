@@ -148,7 +148,8 @@ class Router
                 if (empty($match)) {
                     $object->$objMethod();
                 } else {
-                    $object->$objMethod($match);
+                    $match = array_unique($match, SORT_STRING);
+                    call_user_func_array(array($object, $objMethod), $match);
                 }
             }
         }
