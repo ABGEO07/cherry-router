@@ -11,7 +11,9 @@
  * @link     https://github.com/ABGEO07/cherry-router
  */
 
-namespace Cherry;
+namespace Cherry\Routing;
+
+use Cherry\HttpUtils\Request;
 
 /**
  * Cherry project router class

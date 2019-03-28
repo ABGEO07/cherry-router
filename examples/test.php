@@ -15,6 +15,6 @@ $config = json_decode($config, 1);
 foreach ($config as $k => $v)
     define($k, __DIR__ . '/' . $v);
 
-use Cherry\Router;
+use Cherry\Routing\Router;
 
 $router = new Router();
