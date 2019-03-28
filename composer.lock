@@ -1,11 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "8b160ed158bc9317292ef41f624dc135",
-    "content-hash": "807be3d4f706dbd55d53b25fb1bf1137",
+    "content-hash": "f74ea53417809558a46c2f343aa4f7bc",
     "packages": [
         {
             "name": "cherry-project/request",
@@ -13,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ABGEO07/cherry-request.git",
-                "reference": "96df4a237b895d11866233c68fe53f1d64a68183"
+                "reference": "83e3a4929b70b40afb1c45dec11415d412041dfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ABGEO07/cherry-request/zipball/96df4a237b895d11866233c68fe53f1d64a68183",
-                "reference": "96df4a237b895d11866233c68fe53f1d64a68183",
+                "url": "https://api.github.com/repos/ABGEO07/cherry-request/zipball/83e3a4929b70b40afb1c45dec11415d412041dfd",
+                "reference": "83e3a4929b70b40afb1c45dec11415d412041dfd",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +47,7 @@
                 "cherry",
                 "request"
             ],
-            "time": "2019-03-05 21:14:32"
+            "time": "2019-03-28T15:56:41+00:00"
         }
     ],
     "packages-dev": [],
