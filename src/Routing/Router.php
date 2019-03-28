@@ -124,7 +124,7 @@ class Router
 
                 $action = explode('::', $route['action']);
                 $controller = explode('\\', $action[0]);
-                $controllerFile = $controllersPath . '/' . $controller[1] . '.php';
+                $controllerFile = $controllersPath . '/' . $controller[count($controller) - 1] . '.php';
 
                 //Include controller file
                 if (file_exists($controllerFile)) {
