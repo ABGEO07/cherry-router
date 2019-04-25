@@ -16,7 +16,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0",
-        "cherry-project/request": "v1.0.1",
+        "cherry-project/request": "1.0",
         "ext-json": "*"
     },
     "autoload": {
