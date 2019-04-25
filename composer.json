@@ -3,7 +3,7 @@
     "description": "Cherry-project Router",
     "type": "library",
     "keywords": ["cherry","router"],
-    "homepage": "https://github.com/ABGEO07/cherry-router",
+    "homepage": "https://github.com/cherry-project/router",
     "license": "MIT",
     "authors": [
         {
