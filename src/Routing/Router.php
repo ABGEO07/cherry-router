@@ -7,8 +7,8 @@
  * @category Library
  * @package  Cherry
  * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  https://github.com/cherry-project/router/blob/master/LICENSE MIT
- * @link     https://github.com/cherry-project/router
+ * @license  https://github.com/cherry-framework/router/blob/master/LICENSE MIT
+ * @link     https://github.com/cherry-framework/router
  */
 
 namespace Cherry\Routing;
@@ -21,8 +21,8 @@ use Cherry\HttpUtils\Request;
  * @category Library
  * @package  Cherry
  * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  https://github.com/cherry-project/router/blob/master/LICENSE MIT
- * @link     https://github.com/cherry-project/router
+ * @license  https://github.com/cherry-framework/router/blob/master/LICENSE MIT
+ * @link     https://github.com/cherry-framework/router
  */
 class Router
 {
