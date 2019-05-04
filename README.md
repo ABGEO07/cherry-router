@@ -60,7 +60,7 @@ Each route must have **path**, **method** and **action** keys. Homepage route ex
   "homepage": {
       "path": "/",
       "method": "GET",
-      "action": "Cherry\\Controller\\DefaultController::index"
+      "action": "DefaultController::index"
   }
 }
 ```
@@ -71,7 +71,7 @@ Each route must have **path**, **method** and **action** keys. Homepage route ex
     "[RouteName]": {
         "path": "[URL]",
         "method": "[HTTP_Method]",
-        "action": "[Namespace]\\[Controller]::[Method]"
+        "action": "[Controller]::[Method]"
     }
 }
 ```
@@ -81,8 +81,8 @@ Definitions for router keys:
 - **path** - Route url. (Ex.: For address http://www.example.com/homepage [URL] is *homepage*);
 - **method** - Route HTTP Method. Allowed all [HTTP methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods "HTTP methods");
 - **action** - Route callback action. The firs part of action (before *::*) is your controller (stored in **CONTROLLERS_PATH**).
-Controller is a simple [PHP Class](http://php.net/manual/en/language.oop5.php "PHP Class") where [Namespace] is his Namespace and 
-[Controller] Class name (Class name and class filename must have same names (Ex.: **[Controller].php**)).
+Controller is a simple [PHP Class](http://php.net/manual/en/language.oop5.php "PHP Class") where
+[Controller] is Class name (Class name and class filename must have same names (Ex.: **[Controller].php**)).
 The second part of action key (after ::) is controllers (class) public method;
 
 Your route path can use **Placeholders**. Placeholder is a template of your route.
@@ -93,7 +93,7 @@ Route example with placeholder:
     "homepage": {
         "path": "/hello/{name}",
         "method": "GET",
-        "action": "Cherry\\Controller\\DefaultController::sayHello"
+        "action": "DefaultController::sayHello"
     }
 }
 ```

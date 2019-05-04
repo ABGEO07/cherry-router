@@ -4,19 +4,19 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f74ea53417809558a46c2f343aa4f7bc",
+    "content-hash": "04b8ff541064fe903f9925bf734eec23",
     "packages": [
         {
             "name": "cherry-project/request",
             "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ABGEO07/cherry-request.git",
+                "url": "https://github.com/cherry-framework/request.git",
                 "reference": "83e3a4929b70b40afb1c45dec11415d412041dfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ABGEO07/cherry-request/zipball/83e3a4929b70b40afb1c45dec11415d412041dfd",
+                "url": "https://api.github.com/repos/cherry-framework/request/zipball/83e3a4929b70b40afb1c45dec11415d412041dfd",
                 "reference": "83e3a4929b70b40afb1c45dec11415d412041dfd",
                 "shasum": ""
             },

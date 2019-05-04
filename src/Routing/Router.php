@@ -7,8 +7,8 @@
  * @category Library
  * @package  Cherry
  * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  https://github.com/ABGEO07/cherry-router/blob/master/LICENSE MIT
- * @link     https://github.com/ABGEO07/cherry-router
+ * @license  https://github.com/cherry-framework/router/blob/master/LICENSE MIT
+ * @link     https://github.com/cherry-framework/router
  */
 
 namespace Cherry\Routing;
@@ -21,27 +21,34 @@ use Cherry\HttpUtils\Request;
  * @category Library
  * @package  Cherry
  * @author   Temuri Takalandze <takalandzet@gmail.com>
- * @license  https://github.com/ABGEO07/cherry-router/blob/master/LICENSE MIT
- * @link     https://github.com/ABGEO07/cherry-router
+ * @license  https://github.com/cherry-framework/router/blob/master/LICENSE MIT
+ * @link     https://github.com/cherry-framework/router
  */
 class Router
 {
     /**
-     * Path to routes file
+     * Path to routes file.
      *
      * @var string
      */
     private $_routesFile;
 
     /**
-     * Path to controllers folder
+     * Path to controllers folder.
      *
      * @var string
      */
     private $_controllersPath;
 
     /**
-     * Application routes
+     * Cherry Controller default namespace.
+     *
+     * @var string
+     */
+    private $_ControllerNamespace = "Cherry\\Controller";
+
+    /**
+     * Application routes.
      *
      * @var array
      */
@@ -60,7 +67,7 @@ class Router
     }
 
     /**
-     * Get routes from routes file
+     * Get routes from routes file.
      *
      * @return array Application routes
      */
@@ -91,7 +98,7 @@ class Router
     }
 
     /**
-     * Check if current request url math with
+     * Check if current request url math with any route.
      *
      * @return void
      */
@@ -122,7 +129,9 @@ class Router
                 $routeFound = true;
                 unset($match[0]);
 
-                $action = explode('::', $route['action']);
+                $routeAction = $this->_ControllerNamespace.'\\'.$route['action'];
+
+                $action = explode('::', $routeAction);
                 $controller = explode('\\', $action[0]);
                 $controllerFile = $controllersPath . '/' .
                     $controller[count($controller) - 1] . '.php';
@@ -160,10 +169,10 @@ class Router
     }
 
     /**
-     * Cache the routes
+     * Cache the routes.
      *
      * @param string $routesCacheFile Cache file location.
-     * @param array  $routes          Application routes
+     * @param array  $routes          Application routes.
      *
      * @return void
      */
@@ -182,11 +191,11 @@ class Router
     }
 
     /**
-     * Convert route to regular expression
+     * Convert route to regular expression.
      *
-     * @param string $plainText Router template for converting
+     * @param string $plainText Router template for converting.
      *
-     * @return string converted to Regular Expression route
+     * @return string converted to Regular Expression route.
      */
     private function _convertToRE($plainText)
     {

@@ -3,7 +3,7 @@
     "description": "Cherry-project Router",
     "type": "library",
     "keywords": ["cherry","router"],
-    "homepage": "https://github.com/ABGEO07/cherry-router",
+    "homepage": "https://github.com/cherry-framework/router",
     "license": "MIT",
     "authors": [
         {
@@ -16,7 +16,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.6.0",
-        "cherry-project/request": "v1.0.1",
+        "cherry-project/request": "1.0.1",
         "ext-json": "*"
     },
     "autoload": {
